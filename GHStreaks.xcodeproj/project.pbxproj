@@ -19,6 +19,9 @@
 		805FDEEB1896902C00D1E2AA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 805FDED31896902C00D1E2AA /* UIKit.framework */; };
 		805FDEF31896902C00D1E2AA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 805FDEF11896902C00D1E2AA /* InfoPlist.strings */; };
 		805FDEF51896902C00D1E2AA /* GHStreaksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDEF41896902C00D1E2AA /* GHStreaksTests.m */; };
+		805FDF001897D6E200D1E2AA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDEFF1897D6E200D1E2AA /* MainViewController.m */; };
+		805FDF031897D92A00D1E2AA /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDF021897D92A00D1E2AA /* PreferenceViewController.m */; };
+		805FDF061897D9DF00D1E2AA /* preference-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 805FDF051897D9DF00D1E2AA /* preference-button.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,11 @@
 		805FDEF01896902C00D1E2AA /* GHStreaksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GHStreaksTests-Info.plist"; sourceTree = "<group>"; };
 		805FDEF21896902C00D1E2AA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		805FDEF41896902C00D1E2AA /* GHStreaksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GHStreaksTests.m; sourceTree = "<group>"; };
+		805FDEFE1897D6E200D1E2AA /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		805FDEFF1897D6E200D1E2AA /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		805FDF011897D92A00D1E2AA /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
+		805FDF021897D92A00D1E2AA /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
+		805FDF051897D9DF00D1E2AA /* preference-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preference-button.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,10 +115,15 @@
 		805FDED51896902C00D1E2AA /* GHStreaks */ = {
 			isa = PBXGroup;
 			children = (
+				805FDF041897D9AB00D1E2AA /* images */,
 				805FDEDE1896902C00D1E2AA /* AppDelegate.h */,
 				805FDEDF1896902C00D1E2AA /* AppDelegate.m */,
 				805FDEE11896902C00D1E2AA /* Images.xcassets */,
 				805FDED61896902C00D1E2AA /* Supporting Files */,
+				805FDEFE1897D6E200D1E2AA /* MainViewController.h */,
+				805FDEFF1897D6E200D1E2AA /* MainViewController.m */,
+				805FDF011897D92A00D1E2AA /* PreferenceViewController.h */,
+				805FDF021897D92A00D1E2AA /* PreferenceViewController.m */,
 			);
 			path = GHStreaks;
 			sourceTree = "<group>";
@@ -142,6 +155,14 @@
 				805FDEF11896902C00D1E2AA /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		805FDF041897D9AB00D1E2AA /* images */ = {
+			isa = PBXGroup;
+			children = (
+				805FDF051897D9DF00D1E2AA /* preference-button.png */,
+			);
+			name = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +242,7 @@
 			files = (
 				805FDEDA1896902C00D1E2AA /* InfoPlist.strings in Resources */,
 				805FDEE21896902C00D1E2AA /* Images.xcassets in Resources */,
+				805FDF061897D9DF00D1E2AA /* preference-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,7 +262,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				805FDEE01896902C00D1E2AA /* AppDelegate.m in Sources */,
+				805FDF001897D6E200D1E2AA /* MainViewController.m in Sources */,
 				805FDEDC1896902C00D1E2AA /* main.m in Sources */,
+				805FDF031897D92A00D1E2AA /* PreferenceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +465,7 @@
 				805FDEFA1896902C00D1E2AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		805FDEFB1896902C00D1E2AA /* Build configuration list for PBXNativeTarget "GHStreaksTests" */ = {
 			isa = XCConfigurationList;
@@ -449,6 +474,7 @@
 				805FDEFD1896902C00D1E2AA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
