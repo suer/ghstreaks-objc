@@ -14,10 +14,19 @@
 
 @synthesize mainViewController = _mainViewController;
 
+@synthesize preferenceViewController = _preferenceViewController;
+
+
++ (AppDelegate *)sharedDelegate
+{
+    return [UIApplication sharedApplication].delegate;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self loadRootViewController];
+    [self setupNotification:application];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
@@ -30,6 +39,30 @@
     [self.navigationController setNavigationBarHidden:NO animated:NO];
     [self.window addSubview:navController.view];
     self.window.rootViewController = navController;
+}
+
+- (void)setupNotification:(UIApplication *)application
+{
+
+    [application registerForRemoteNotificationTypes: (UIRemoteNotificationTypeBadge|
+                                                      UIRemoteNotificationTypeSound|
+                                                      UIRemoteNotificationTypeAlert)];
+}
+
+- (NSData *)getDeviceToken
+{
+    return self.deviceToken;
+}
+
+-(void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    self.deviceToken = deviceToken;
+    NSLog(@"got deviceToken: %@", self.deviceToken);
+}
+
+- (void)application:(UIApplication*)app didFailToRegisterForRemoteNotificationsWithError:(NSError*)err
+{
+    NSLog(@"got err: %@", err);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -59,4 +92,8 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (void)registerForRemoteNotifications
+{
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
+}
 @end
