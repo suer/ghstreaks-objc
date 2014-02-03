@@ -9,12 +9,16 @@
 #import "PreferenceViewController.h"
 #import <MessageUI/MessageUI.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import <LRResty.h>
+#import "Preference.h"
 
 @interface PreferenceViewController ()<MFMailComposeViewControllerDelegate>
 
 @property (strong, nonatomic) UILabel *deviceTokenLabel;
 
 @property (strong, nonatomic) UITextField *userNameTextField;
+
+@property (strong, nonatomic) NSString *serviceURL;
 
 @end
 
@@ -32,7 +36,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.serviceURL = [[[Preference alloc] init] serviceURL];
     [self addDeviceTokenLabel];
     [self addUserNameTextField];
     [self addRegisterButton];
@@ -45,7 +49,7 @@
     const unsigned *tokenBytes = [[delegate getDeviceToken] bytes];
     NSString *token = @"";
     if (tokenBytes != NULL) {
-        [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+        token = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
                        ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
                        ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
                        ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
@@ -76,7 +80,18 @@
 
 - (void)registerButtonTapped:(id)sender
 {
+    NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
+    NSURL *registrationURL = [NSURL URLWithString:@"/notifications" relativeToURL:baseURL];
+
+    NSDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:self.userNameTextField.text forKey:@"notification[name]"];
+    [params setValue:self.deviceTokenLabel.text forKey:@"notification[device_token]"];
+    [params setValue:@"18" forKey:@"notification[hour]"];
+    [params setValue:@"0" forKey:@"notification[minute]"];
     
+    [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
+        NSLog(@"%@", [response asString]);
+    }];
 }
 
 - ( void )mailComposeController:( MFMailComposeViewController* )controller didFinishWithResult:( MFMailComposeResult )result error:( NSError* )error

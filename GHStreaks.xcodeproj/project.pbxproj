@@ -24,6 +24,7 @@
 		805FDF031897D92A00D1E2AA /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDF021897D92A00D1E2AA /* PreferenceViewController.m */; };
 		805FDF061897D9DF00D1E2AA /* preference-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 805FDF051897D9DF00D1E2AA /* preference-button.png */; };
 		808B63BA189DE7C300F65F28 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808B63B9189DE7C300F65F28 /* preference.plist */; };
+		808B63BD189DE9AD00F65F28 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B63BC189DE9AD00F65F28 /* Preference.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		805FDF021897D92A00D1E2AA /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
 		805FDF051897D9DF00D1E2AA /* preference-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preference-button.png"; sourceTree = "<group>"; };
 		808B63B9189DE7C300F65F28 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
+		808B63BB189DE9AD00F65F28 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
+		808B63BC189DE9AD00F65F28 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
 		E3C1407957764977B2F78B17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +136,8 @@
 				805FDF011897D92A00D1E2AA /* PreferenceViewController.h */,
 				805FDF021897D92A00D1E2AA /* PreferenceViewController.m */,
 				808B63B9189DE7C300F65F28 /* preference.plist */,
+				808B63BB189DE9AD00F65F28 /* Preference.h */,
+				808B63BC189DE9AD00F65F28 /* Preference.m */,
 			);
 			path = GHStreaks;
 			sourceTree = "<group>";
@@ -223,9 +228,6 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = codefirst.org;
 				TargetAttributes = {
-					805FDECB1896902C00D1E2AA = {
-						DevelopmentTeam = 425P5D8S8Q;
-					};
 					805FDEE61896902C00D1E2AA = {
 						TestTargetID = 805FDECB1896902C00D1E2AA;
 					};
@@ -309,6 +311,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				808B63BD189DE9AD00F65F28 /* Preference.m in Sources */,
 				805FDEE01896902C00D1E2AA /* AppDelegate.m in Sources */,
 				805FDF001897D6E200D1E2AA /* MainViewController.m in Sources */,
 				805FDEDC1896902C00D1E2AA /* main.m in Sources */,
