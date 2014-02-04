@@ -22,7 +22,8 @@
 		805FDEF51896902C00D1E2AA /* GHStreaksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDEF41896902C00D1E2AA /* GHStreaksTests.m */; };
 		805FDF001897D6E200D1E2AA /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDEFF1897D6E200D1E2AA /* MainViewController.m */; };
 		805FDF031897D92A00D1E2AA /* PreferenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 805FDF021897D92A00D1E2AA /* PreferenceViewController.m */; };
-		805FDF061897D9DF00D1E2AA /* preference-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 805FDF051897D9DF00D1E2AA /* preference-button.png */; };
+		80703F76189FF29F00240047 /* preference-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 80703F74189FF29F00240047 /* preference-button.png */; };
+		80703F77189FF29F00240047 /* preference-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80703F75189FF29F00240047 /* preference-button@2x.png */; };
 		808B63BA189DE7C300F65F28 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808B63B9189DE7C300F65F28 /* preference.plist */; };
 		808B63BD189DE9AD00F65F28 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B63BC189DE9AD00F65F28 /* Preference.m */; };
 /* End PBXBuildFile section */
@@ -59,7 +60,8 @@
 		805FDEFF1897D6E200D1E2AA /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		805FDF011897D92A00D1E2AA /* PreferenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceViewController.h; sourceTree = "<group>"; };
 		805FDF021897D92A00D1E2AA /* PreferenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceViewController.m; sourceTree = "<group>"; };
-		805FDF051897D9DF00D1E2AA /* preference-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preference-button.png"; sourceTree = "<group>"; };
+		80703F74189FF29F00240047 /* preference-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preference-button.png"; sourceTree = "<group>"; };
+		80703F75189FF29F00240047 /* preference-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preference-button@2x.png"; sourceTree = "<group>"; };
 		808B63B9189DE7C300F65F28 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
 		808B63BB189DE9AD00F65F28 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
 		808B63BC189DE9AD00F65F28 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
@@ -174,7 +176,8 @@
 		805FDF041897D9AB00D1E2AA /* images */ = {
 			isa = PBXGroup;
 			children = (
-				805FDF051897D9DF00D1E2AA /* preference-button.png */,
+				80703F74189FF29F00240047 /* preference-button.png */,
+				80703F75189FF29F00240047 /* preference-button@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -256,10 +259,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80703F76189FF29F00240047 /* preference-button.png in Resources */,
+				80703F77189FF29F00240047 /* preference-button@2x.png in Resources */,
 				805FDEDA1896902C00D1E2AA /* InfoPlist.strings in Resources */,
 				808B63BA189DE7C300F65F28 /* preference.plist in Resources */,
 				805FDEE21896902C00D1E2AA /* Images.xcassets in Resources */,
-				805FDF061897D9DF00D1E2AA /* preference-button.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
