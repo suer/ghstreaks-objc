@@ -16,13 +16,14 @@
 
 @synthesize preferenceViewController = _preferenceViewController;
 
+@synthesize currentStreaks = _currentStreaks;
 
 + (AppDelegate *)sharedDelegate
 {
     return [UIApplication sharedApplication].delegate;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+- (BOOL)setup:(UIApplication *)application
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [self loadRootViewController];
@@ -30,6 +31,16 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    return [self setup:application];
+}
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [self setup:application];
 }
 
 - (void)loadRootViewController
@@ -95,5 +106,10 @@
 - (void)registerForRemoteNotifications
 {
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
+}
+
++ (NSString *)userDefaultsKeyGitHubUser
+{
+    return @"GITHUB_USER";
 }
 @end

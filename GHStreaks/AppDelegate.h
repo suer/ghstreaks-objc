@@ -24,8 +24,12 @@
 
 @property (strong, nonatomic) NSData *deviceToken;
 
+@property (strong, nonatomic) NSString *currentStreaks;
+
 - (void)registerForRemoteNotifications;
 
 - (NSData *)getDeviceToken;
+
++ (NSString *)userDefaultsKeyGitHubUser;
     
 @end

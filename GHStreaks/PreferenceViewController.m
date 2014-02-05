@@ -63,6 +63,8 @@
 - (void)addUserNameTextField
 {
     self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, 300, 100)];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.userNameTextField.text = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
     self.userNameTextField.placeholder = @"GitHub User Name";
     [self.view addSubview:self.userNameTextField];
 }
@@ -92,6 +94,9 @@
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
         NSLog(@"%@", [response asString]);
     }];
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:self.userNameTextField.text forKey:[AppDelegate userDefaultsKeyGitHubUser]];
 }
 
 - ( void )mailComposeController:( MFMailComposeViewController* )controller didFinishWithResult:( MFMailComposeResult )result error:( NSError* )error

@@ -8,11 +8,13 @@
 
 #import "MainViewController.h"
 #import "PreferenceViewController.h"
+#import <LRResty.h>
 
 @interface MainViewController ()
 
 @property (nonatomic) UIBarButtonItem *preferenceButton;
 
+@property (nonatomic) UILabel *streaksLabel;
 @end
 
 @implementation MainViewController
@@ -31,17 +33,71 @@
     [super viewDidLoad];
 
     [self loadToolBarButtons];
+    [self loadText];
 }
 
 - (void)loadToolBarButtons
 {
     [self.navigationController setToolbarHidden:NO animated:YES];
+
+    UIBarButtonItem *reloadButton =[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+                                                                           target:self
+                                                                           action:@selector(reload:)];
+
+    UIBarButtonItem *spacer = [[UIBarButtonItem alloc]
+                               initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+                               target:nil
+                               action:nil];
+
     self.preferenceButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"preference-button.png"]
                                                              style:UIBarButtonItemStyleBordered
                                                             target:self
                                                             action:@selector(openPreferenceWindow:)];
 
-    self.toolbarItems = @[self.preferenceButton];
+    self.toolbarItems = @[reloadButton, spacer, self.preferenceButton];
+}
+
+- (void)loadText
+{
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 140, screenRect.size.width, 30)];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = @"Current Streaks";
+    titleLabel.font = [UIFont systemFontOfSize:30];
+    [self.view addSubview:titleLabel];
+
+    self.streaksLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, screenRect.size.width, 50)];
+    self.streaksLabel.textAlignment = NSTextAlignmentCenter;
+    self.streaksLabel.font = [UIFont systemFontOfSize:50];
+    [self getCurrentStreaks:@"suer"];
+    [self.view addSubview:self.streaksLabel];
+}
+
+- (void)getCurrentStreaks:(NSString *)user
+{
+    if ([user isEqualToString:@""]) {
+        self.streaksLabel.text = @"";
+    }
+    NSString *url = [NSString stringWithFormat:@"https://ghstreaks-service.herokuapp.com/streaks/%@", user];
+    [[LRResty client] get:url withBlock:^(LRRestyResponse *response) {
+        NSString *json = [response asString];
+        NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
+        NSError *error = nil;
+        NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                              options:NSJSONReadingAllowFragments
+                                                                error:&error];
+        if (error != nil) {
+            NSLog(@"failed to parse Json %d", error.code);
+            return;
+        }
+
+        self.streaksLabel.text = [NSString stringWithFormat:@"%d", [[dic objectForKey:@"current_streaks"] intValue]];
+    }];
+}
+
+- (void)reload:(id)sender
+{
+    [self loadText];
 }
 
 - (void)openPreferenceWindow:(id)sender
