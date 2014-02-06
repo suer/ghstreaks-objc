@@ -66,14 +66,14 @@
     titleLabel.font = [UIFont systemFontOfSize:30];
     [self.view addSubview:titleLabel];
 
-    self.streaksLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, screenRect.size.width, 50)];
+    self.streaksLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, screenRect.size.width, 100)];
     self.streaksLabel.textAlignment = NSTextAlignmentCenter;
-    self.streaksLabel.font = [UIFont systemFontOfSize:50];
-    [self getCurrentStreaks:@"suer"];
+    self.streaksLabel.font = [UIFont systemFontOfSize:100];
+    [self showCurrentStreaks:@"suer"];
     [self.view addSubview:self.streaksLabel];
 }
 
-- (void)getCurrentStreaks:(NSString *)user
+- (void)showCurrentStreaks:(NSString *)user
 {
     if ([user isEqualToString:@""]) {
         self.streaksLabel.text = @"";
@@ -87,7 +87,7 @@
                                                               options:NSJSONReadingAllowFragments
                                                                 error:&error];
         if (error != nil) {
-            NSLog(@"failed to parse Json %d", error.code);
+            NSLog(@"failed to parse Json %ld", (long)error.code);
             return;
         }
 
