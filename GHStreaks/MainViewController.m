@@ -69,7 +69,12 @@
     self.streaksLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, screenRect.size.width, 100)];
     self.streaksLabel.textAlignment = NSTextAlignmentCenter;
     self.streaksLabel.font = [UIFont systemFontOfSize:100];
-    [self showCurrentStreaks:@"suer"];
+
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *user = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
+    if (user != nil) {
+        [self showCurrentStreaks:user];
+    }
     [self.view addSubview:self.streaksLabel];
 }
 
