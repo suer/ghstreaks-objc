@@ -62,10 +62,11 @@
 
 - (void)addUserNameTextField
 {
-    self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 80, 300, 100)];
+    self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(10, 120, 300, 50)];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     self.userNameTextField.text = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
     self.userNameTextField.placeholder = @"GitHub User Name";
+    self.userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:self.userNameTextField];
 }
 
