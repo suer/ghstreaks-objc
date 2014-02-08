@@ -112,4 +112,8 @@
 {
     return @"GITHUB_USER";
 }
++ (NSString *)userDefaultsKeyNotificationHour
+{
+    return @"NOTIFICATION_HOUR";
+}
 @end

@@ -31,5 +31,6 @@
 - (NSData *)getDeviceToken;
 
 + (NSString *)userDefaultsKeyGitHubUser;
-    
+
++ (NSString *)userDefaultsKeyNotificationHour;
 @end
