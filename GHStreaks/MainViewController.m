@@ -102,7 +102,11 @@
 
 - (void)reload:(id)sender
 {
-    [self loadText];
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *user = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
+    if (user != nil) {
+        [self showCurrentStreaks:user];
+    }
 }
 
 - (void)openPreferenceWindow:(id)sender
