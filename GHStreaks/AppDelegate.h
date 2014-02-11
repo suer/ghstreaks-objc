@@ -29,6 +29,7 @@
 - (void)registerForRemoteNotifications;
 
 - (NSData *)getDeviceToken;
+- (NSString *)getDeviceTokenString;
 
 + (NSString *)userDefaultsKeyGitHubUser;
 

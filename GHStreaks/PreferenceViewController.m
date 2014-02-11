@@ -14,8 +14,6 @@
 
 @interface PreferenceViewController ()<MFMailComposeViewControllerDelegate, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
-@property (strong, nonatomic) UILabel *deviceTokenLabel;
-
 @property (strong, nonatomic) UITextField *userNameTextField;
 
 @property (strong, nonatomic) NSString *serviceURL;
@@ -41,28 +39,9 @@
 {
     [super viewDidLoad];
     self.serviceURL = [[[Preference alloc] init] serviceURL];
-    [self addDeviceTokenLabel];
     [self addUserNameTextField];
     [self addHourTextField];
     [self addRegisterButton];
-}
-
-- (void)addDeviceTokenLabel
-{
-    AppDelegate *delegate = [AppDelegate sharedDelegate];
-    self.deviceTokenLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 40, 300, 100)];
-    const unsigned *tokenBytes = [[delegate getDeviceToken] bytes];
-    NSString *token = @"";
-    if (tokenBytes != NULL) {
-        token = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
-                       ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
-                       ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
-                       ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
-    }
-    self.deviceTokenLabel.text = token;
-    
-    [self.deviceTokenLabel setLineBreakMode:NSLineBreakByWordWrapping];
-    [self.view addSubview:self.deviceTokenLabel];
 }
 
 - (void)addUserNameTextField
@@ -125,7 +104,7 @@
 
     NSDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.userNameTextField.text forKey:@"notification[name]"];
-    [params setValue:self.deviceTokenLabel.text forKey:@"notification[device_token]"];
+    [params setValue:[[AppDelegate sharedDelegate] getDeviceTokenString] forKey:@"notification[device_token]"];
     [params setValue:self.hourTextField.text forKey:@"notification[hour]"];
     [params setValue:@"0" forKey:@"notification[minute]"];
     
