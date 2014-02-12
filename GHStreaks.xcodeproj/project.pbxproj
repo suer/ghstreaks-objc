@@ -26,6 +26,7 @@
 		80703F77189FF29F00240047 /* preference-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80703F75189FF29F00240047 /* preference-button@2x.png */; };
 		808B63BA189DE7C300F65F28 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808B63B9189DE7C300F65F28 /* preference.plist */; };
 		808B63BD189DE9AD00F65F28 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B63BC189DE9AD00F65F28 /* Preference.m */; };
+		80F1E3CC18ABA65F00307E2B /* UILabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		808B63B9189DE7C300F65F28 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
 		808B63BB189DE9AD00F65F28 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
 		808B63BC189DE9AD00F65F28 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
+		80F1E3CA18ABA65F00307E2B /* UILabelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelHelper.h; sourceTree = "<group>"; };
+		80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelHelper.m; sourceTree = "<group>"; };
 		E3C1407957764977B2F78B17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -140,6 +143,8 @@
 				808B63B9189DE7C300F65F28 /* preference.plist */,
 				808B63BB189DE9AD00F65F28 /* Preference.h */,
 				808B63BC189DE9AD00F65F28 /* Preference.m */,
+				80F1E3CA18ABA65F00307E2B /* UILabelHelper.h */,
+				80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */,
 			);
 			path = GHStreaks;
 			sourceTree = "<group>";
@@ -320,6 +325,7 @@
 			files = (
 				808B63BD189DE9AD00F65F28 /* Preference.m in Sources */,
 				805FDEE01896902C00D1E2AA /* AppDelegate.m in Sources */,
+				80F1E3CC18ABA65F00307E2B /* UILabelHelper.m in Sources */,
 				805FDF001897D6E200D1E2AA /* MainViewController.m in Sources */,
 				805FDEDC1896902C00D1E2AA /* main.m in Sources */,
 				805FDF031897D92A00D1E2AA /* PreferenceViewController.m in Sources */,

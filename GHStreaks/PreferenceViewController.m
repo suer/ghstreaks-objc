@@ -48,8 +48,7 @@
 
 - (void)addUserNameTextField
 {
-    UILabel *userNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 120, 90, 40)];
-    userNameLabel.text = @"ユーザ名:";
+    UILabel *userNameLabel = [UILabelHelper createUILabel:10 pointY:120 width:90 height:40 text:@"ユーザ名:"];
     [self.view addSubview:userNameLabel];
     
     self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 210, 40)];
@@ -63,8 +62,7 @@
 
 - (void)addHourTextField
 {
-    UILabel *hourLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 180, 90, 40)];
-    hourLabel.text = @"通知時刻:";
+    UILabel *hourLabel = [UILabelHelper createUILabel:10 pointY:180 width:90 height:40 text:@"通知時刻:"];
     [self.view addSubview:hourLabel];
     
     self.hourTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 180, 210, 40)];

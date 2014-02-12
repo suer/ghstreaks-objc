@@ -11,6 +11,7 @@
 #endif
 
 #import "AppDelegate.h"
+#import "UILabelHelper.h"
 
 #ifdef __OBJC__
     #import <UIKit/UIKit.h>

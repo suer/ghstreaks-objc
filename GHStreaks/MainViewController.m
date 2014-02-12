@@ -60,16 +60,10 @@
 - (void)loadText
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 140, screenRect.size.width, 30)];
-    titleLabel.textAlignment = NSTextAlignmentCenter;
-    titleLabel.text = @"Current Streaks";
-    titleLabel.font = [UIFont systemFontOfSize:30];
+    UILabel *titleLabel = [UILabelHelper createUILabel:0 pointY:140 width:screenRect.size.width height:30 fontSize:30 text:@"Current Streaks"];
     [self.view addSubview:titleLabel];
 
-    self.streaksLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 200, screenRect.size.width, 100)];
-    self.streaksLabel.textAlignment = NSTextAlignmentCenter;
-    self.streaksLabel.font = [UIFont systemFontOfSize:100];
-
+    self.streaksLabel = [UILabelHelper createUILabel:0 pointY:200 width:screenRect.size.width height:100 fontSize:100 text:@""];
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSString *user = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
     if (user != nil) {
