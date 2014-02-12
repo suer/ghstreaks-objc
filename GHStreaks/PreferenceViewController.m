@@ -52,8 +52,7 @@
     [self.view addSubview:userNameLabel];
     
     self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 210, 40)];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.userNameTextField.text = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
+    self.userNameTextField.text = [[AppDelegate sharedDelegate] getGitHubUser];
     self.userNameTextField.placeholder = @"GitHub User Name";
     self.userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     [self.view addSubview:self.userNameTextField];
@@ -66,8 +65,7 @@
     [self.view addSubview:hourLabel];
     
     self.hourTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 180, 210, 40)];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    self.hourTextField.text = [userDefaults stringForKey:[AppDelegate userDefaultsKeyNotificationHour]];
+    self.hourTextField.text = [[AppDelegate sharedDelegate] getNotificationHour];
     self.hourTextField.placeholder = @"hour";
     self.hourTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.hourTextField.delegate = self;

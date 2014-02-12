@@ -129,4 +129,16 @@
     }
     return token;
 }
+
+- (NSString *)getGitHubUser
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
+}
+
+- (NSString *)getNotificationHour
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:[AppDelegate userDefaultsKeyNotificationHour]];
+}
 @end

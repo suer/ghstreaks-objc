@@ -64,8 +64,7 @@
     [self.view addSubview:titleLabel];
 
     self.streaksLabel = [UILabelHelper createUILabel:0 pointY:200 width:screenRect.size.width height:100 fontSize:100 text:@""];
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *user = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
+    NSString *user = [[AppDelegate sharedDelegate] getGitHubUser];
     if (user != nil) {
         [self showCurrentStreaks:user];
     }
@@ -96,8 +95,7 @@
 
 - (void)reload:(id)sender
 {
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *user = [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
+    NSString *user = [[AppDelegate sharedDelegate] getGitHubUser];
     if (user != nil) {
         [self showCurrentStreaks:user];
     }
