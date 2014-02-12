@@ -42,6 +42,8 @@
     [self addUserNameTextField];
     [self addHourTextField];
     [self addRegisterButton];
+
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)addUserNameTextField
