@@ -73,7 +73,7 @@
 
     self.hourChoices = [[NSMutableArray alloc] init];
     for (int i = 0; i < 24; i++) {
-        [self.hourChoices addObject:[NSString stringWithFormat:@"%d", i]];
+        [self.hourChoices addObject:[NSString stringWithFormat:@"%2d:00", i]];
     }
     
     CGRect screenRect = [[UIScreen mainScreen] bounds];
@@ -103,7 +103,7 @@
     NSDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.userNameTextField.text forKey:@"notification[name]"];
     [params setValue:[[AppDelegate sharedDelegate] getDeviceTokenString] forKey:@"notification[device_token]"];
-    [params setValue:self.hourTextField.text forKey:@"notification[hour]"];
+    [params setValue:[self getHourFromString:self.hourTextField.text] forKey:@"notification[hour]"];
     [params setValue:@"0" forKey:@"notification[minute]"];
     
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
@@ -114,6 +114,12 @@
     [userDefaults setObject:self.userNameTextField.text forKey:[AppDelegate userDefaultsKeyGitHubUser]];
     [userDefaults setObject:self.hourTextField.text forKey:[AppDelegate userDefaultsKeyNotificationHour]];
 
+}
+
+- (NSString *)getHourFromString:hourText
+{
+    NSArray *array = [hourText componentsSeparatedByString:@":"];
+    return array[0];
 }
 
 - ( void )mailComposeController:( MFMailComposeViewController* )controller didFinishWithResult:( MFMailComposeResult )result error:( NSError* )error
