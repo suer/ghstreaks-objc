@@ -104,6 +104,7 @@
     [params setValue:self.userNameTextField.text forKey:@"notification[name]"];
     [params setValue:[[AppDelegate sharedDelegate] getDeviceTokenString] forKey:@"notification[device_token]"];
     [params setValue:[self getHourFromString:self.hourTextField.text] forKey:@"notification[hour]"];
+    [params setValue:[[NSTimeZone defaultTimeZone] name] forKey:@"notification[timezone]"];
     [params setValue:@"0" forKey:@"notification[minute]"];
     
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
