@@ -99,12 +99,12 @@
 {
     NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
     NSURL *registrationURL = [NSURL URLWithString:@"/notifications" relativeToURL:baseURL];
-
+    NSString *utc_offset =  [NSString stringWithFormat:@"%d", ([[NSTimeZone defaultTimeZone] secondsFromGMT] / 3600)];
     NSDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.userNameTextField.text forKey:@"notification[name]"];
     [params setValue:[[AppDelegate sharedDelegate] getDeviceTokenString] forKey:@"notification[device_token]"];
     [params setValue:[self getHourFromString:self.hourTextField.text] forKey:@"notification[hour]"];
-    [params setValue:[[NSTimeZone defaultTimeZone] name] forKey:@"notification[timezone]"];
+    [params setValue:utc_offset forKey:@"notification[utc_offset]"];
     [params setValue:@"0" forKey:@"notification[minute]"];
     
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
