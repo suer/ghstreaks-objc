@@ -99,7 +99,7 @@
 {
     NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
     NSURL *registrationURL = [NSURL URLWithString:@"/notifications" relativeToURL:baseURL];
-    NSString *utc_offset =  [NSString stringWithFormat:@"%ld", ([[NSTimeZone defaultTimeZone] secondsFromGMT] / 3600)];
+    NSString *utc_offset =  [NSString stringWithFormat:@"%d", (int)([[NSTimeZone defaultTimeZone] secondsFromGMT] / 3600)];
     NSDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:self.userNameTextField.text forKey:@"notification[name]"];
     [params setValue:[[AppDelegate sharedDelegate] getDeviceTokenString] forKey:@"notification[device_token]"];
