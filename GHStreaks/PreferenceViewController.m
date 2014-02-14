@@ -97,6 +97,8 @@
 
 - (void)registerButtonTapped:(id)sender
 {
+    [SVProgressHUD showWithStatus:@"Register..." maskType:SVProgressHUDMaskTypeBlack];
+
     NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
     NSURL *registrationURL = [NSURL URLWithString:@"/notifications" relativeToURL:baseURL];
     NSString *utc_offset =  [NSString stringWithFormat:@"%d", (int)([[NSTimeZone defaultTimeZone] secondsFromGMT] / 3600)];
@@ -108,6 +110,8 @@
     
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
         NSLog(@"%@", [response asString]);
+        [SVProgressHUD showSuccessWithStatus:@"Success"];
+        [self.navigationController popViewControllerAnimated:YES];
     }];
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

@@ -2,12 +2,15 @@ PODS:
   - LRResty (0.11.0):
     - NSData+Base64 (~> 1.0)
   - NSData+Base64 (1.0.0)
+  - SVProgressHUD (1.0)
 
 DEPENDENCIES:
   - LRResty (~> 0.11.0)
+  - SVProgressHUD (~> 1.0)
 
 SPEC CHECKSUMS:
   LRResty: 5e4c1b91bc5f878d64e965facd5cc9320b9ed3e2
   NSData+Base64: 4819562faee4544e3cf5703f2139820b09732b28
+  SVProgressHUD: 5e10939a296debf5fe5a5895eda9539b8b2114f1
 
 COCOAPODS: 0.28.0

@@ -76,6 +76,7 @@
     if ([user isEqualToString:@""]) {
         self.streaksLabel.text = @"";
     }
+    [SVProgressHUD showWithStatus:@"Getting streaks..." maskType:SVProgressHUDMaskTypeBlack];
     NSString *url = [NSString stringWithFormat:@"https://ghstreaks-service.herokuapp.com/streaks/%@", user];
     [[LRResty client] get:url withBlock:^(LRRestyResponse *response) {
         NSString *json = [response asString];
@@ -86,10 +87,11 @@
                                                                 error:&error];
         if (error != nil) {
             NSLog(@"failed to parse Json %ld", (long)error.code);
-            return;
+            [SVProgressHUD showErrorWithStatus:@"Failure"];
+        } else {
+            self.streaksLabel.text = [NSString stringWithFormat:@"%d", [[dic objectForKey:@"current_streaks"] intValue]];
+            [SVProgressHUD showSuccessWithStatus:@"Success"];
         }
-
-        self.streaksLabel.text = [NSString stringWithFormat:@"%d", [[dic objectForKey:@"current_streaks"] intValue]];
     }];
 }
 
