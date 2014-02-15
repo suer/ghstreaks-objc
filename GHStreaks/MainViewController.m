@@ -32,6 +32,7 @@
 {
     [super viewDidLoad];
 
+    [self setTitle:@"GHStreaks"];
     [self loadToolBarButtons];
     [self loadText];
 }
