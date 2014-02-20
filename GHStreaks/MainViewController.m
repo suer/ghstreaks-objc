@@ -90,7 +90,9 @@
             NSLog(@"failed to parse Json %ld", (long)error.code);
             [SVProgressHUD showErrorWithStatus:@"Failure"];
         } else {
-            self.streaksLabel.text = [NSString stringWithFormat:@"%d", [[dic objectForKey:@"current_streaks"] intValue]];
+            int streaks = [[dic objectForKey:@"current_streaks"] intValue];
+            self.streaksLabel.text = [NSString stringWithFormat:@"%d", streaks];
+            [UIApplication sharedApplication].applicationIconBadgeNumber = streaks;
             [SVProgressHUD showSuccessWithStatus:@"Success"];
         }
     }];
