@@ -43,6 +43,9 @@
     [self addHourTextField];
     [self addRegisterButton];
 
+    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeSoftKeyboard)];
+    [self.view addGestureRecognizer:gestureRecognizer];
+
     [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
@@ -55,8 +58,8 @@
     self.userNameTextField.text = [[AppDelegate sharedDelegate] getGitHubUser];
     self.userNameTextField.placeholder = @"GitHub User Name";
     self.userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
+    self.userNameTextField.delegate = self;
     [self.view addSubview:self.userNameTextField];
-    
 }
 
 - (void)addHourTextField
@@ -133,6 +136,7 @@
 
 
 - (void)showPicker {
+    [self closeSoftKeyboard];
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration:0.4];
 	[UIView setAnimationDelegate:self];
@@ -166,8 +170,14 @@
 
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-	[self showPicker];
-    return NO;
+    if (textField == self.userNameTextField) {
+        [self hidePicker];
+        return YES;
+    } else if (textField == self.hourTextField) {
+        [self showPicker];
+        return NO;
+    }
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -194,6 +204,10 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.hourTextField.text = self.hourChoices[row];
+}
+
+- (void)closeSoftKeyboard {
+    [self.view endEditing: YES];
 }
 
 @end
