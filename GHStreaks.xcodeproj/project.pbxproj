@@ -237,7 +237,7 @@
 				ORGANIZATIONNAME = codefirst.org;
 				TargetAttributes = {
 					805FDECB1896902C00D1E2AA = {
-						DevelopmentTeam = 425P5D8S8Q;
+						DevelopmentTeam = LG7S83GR74;
 					};
 					805FDEE61896902C00D1E2AA = {
 						TestTargetID = 805FDECB1896902C00D1E2AA;

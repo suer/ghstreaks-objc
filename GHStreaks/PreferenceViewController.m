@@ -97,7 +97,7 @@
 
 - (void)registerButtonTapped:(id)sender
 {
-    [SVProgressHUD showWithStatus:@"Register..." maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:@"Registering..." maskType:SVProgressHUDMaskTypeBlack];
 
     NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
     NSURL *registrationURL = [NSURL URLWithString:@"/notifications" relativeToURL:baseURL];
