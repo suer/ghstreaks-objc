@@ -69,6 +69,9 @@
     
     self.hourTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 180, 210, 40)];
     self.hourTextField.text = [[AppDelegate sharedDelegate] getNotificationHour];
+    if ([self.hourTextField.text compare:@""] == NSOrderedSame) {
+        self.hourTextField.text = @"18:00";
+    }
     self.hourTextField.placeholder = @"hour";
     self.hourTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.hourTextField.delegate = self;
