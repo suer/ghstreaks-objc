@@ -134,6 +134,13 @@
     [controller dismissViewControllerAnimated:true completion:nil];
 }
 
+- (void)selectRowByTextField {
+    for (int i = 0j; i < 24; i++) {
+        if ([self.hourTextField.text isEqualToString:[NSString stringWithFormat:@"%2d:00", i]]) {
+            [self.hourPickerView selectRow:i inComponent:0 animated:NO];
+        }
+    }
+}
 
 - (void)showPicker {
     [self closeSoftKeyboard];
@@ -142,7 +149,9 @@
 	[UIView setAnimationDelegate:self];
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.hourPickerView.frame = CGRectMake(0, screenRect.size.height - 240, screenRect.size.width, 300);
-	[UIView commitAnimations];
+    [UIView commitAnimations];
+
+    [self selectRowByTextField];
 
 	if (!self.navigationItem.rightBarButtonItem) {
         UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
@@ -151,6 +160,7 @@
         [self.navigationItem setRightBarButtonItem:doneButton animated:YES];
     }
 }
+
 - (void)hidePicker {
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration:0.4];
@@ -158,7 +168,7 @@
     CGRect screenRect = [[UIScreen mainScreen] bounds];
     self.hourPickerView.frame = CGRectMake(0, screenRect.size.height, screenRect.size.width, 216);
 	[UIView commitAnimations];
-    
+
 	[self.navigationItem setRightBarButtonItem:nil animated:YES];
 }
 
