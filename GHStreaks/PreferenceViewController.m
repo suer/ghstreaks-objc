@@ -26,6 +26,8 @@
 
 @implementation PreferenceViewController
 
+static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -70,7 +72,7 @@
     self.hourTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 180, 210, 40)];
     self.hourTextField.text = [[AppDelegate sharedDelegate] getNotificationHour];
     if ([self.hourTextField.text compare:@""] == NSOrderedSame) {
-        self.hourTextField.text = @"18:00";
+        self.hourTextField.text = DEFAULT_NOTIFICATION_HOUR;
     }
     self.hourTextField.placeholder = @"hour";
     self.hourTextField.borderStyle = UITextBorderStyleRoundedRect;
