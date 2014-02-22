@@ -1,3 +1,6 @@
+"MainViewTitle" = "GHStreaks";
+"PreferenceViewTitle" = "Preference";
+"CurrentStreaks" = "Current Streaks";
 "UserNameTextFieldLabel" = "User";
 "NotifyAtTextFieldLabel" = "Notify";
 "RegisterButtonLabel" = "Register";

@@ -1,3 +1,6 @@
+"MainViewTitle" = "GHStreaks";
+"PreferenceViewTitle" = "設定";
+"CurrentStreaks" = "Current Streaks";
 "UserNameTextFieldLabel" = "ユーザ名";
 "NotifyAtTextFieldLabel" = "通知時刻";
 "RegisterButtonLabel" = "登録する";

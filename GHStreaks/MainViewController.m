@@ -33,7 +33,7 @@
 {
     [super viewDidLoad];
 
-    [self setTitle:@"GHStreaks"];
+    [self setTitle:NSLocalizedString(@"MainViewTitle", nil)];
     [self loadToolBarButtons];
     [self loadText];
 }
@@ -62,7 +62,7 @@
 - (void)loadText
 {
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    UILabel *titleLabel = [UILabelHelper createUILabel:0 pointY:140 width:screenRect.size.width height:30 fontSize:30 text:@"Current Streaks"];
+    UILabel *titleLabel = [UILabelHelper createUILabel:0 pointY:140 width:screenRect.size.width height:30 fontSize:30 text:NSLocalizedString(@"CurrentStreaks", nil)];
     [self.view addSubview:titleLabel];
 
     self.streaksLabel = [UILabelHelper createUILabel:0 pointY:200 width:screenRect.size.width height:100 fontSize:100 text:@""];
@@ -113,7 +113,7 @@
 - (void)openPreferenceWindow:(id)sender
 {
     PreferenceViewController *preferenceViewController = [[PreferenceViewController alloc] initWithNibName:nil bundle:nil];
-    preferenceViewController.title = @"設定";
+    preferenceViewController.title = NSLocalizedString(@"PreferenceViewTitle", nil);
     [self.navigationController pushViewController:preferenceViewController animated:YES];
 }
 
