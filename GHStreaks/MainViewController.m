@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "PreferenceViewController.h"
+#import "Preference.h"
 #import <LRResty.h>
 
 @interface MainViewController ()
@@ -78,8 +79,11 @@
         self.streaksLabel.text = @"";
     }
     [SVProgressHUD showWithStatus:@"Getting streaks..." maskType:SVProgressHUDMaskTypeBlack];
-    NSString *url = [NSString stringWithFormat:@"https://ghstreaks-service.herokuapp.com/streaks/%@", user];
-    [[LRResty client] get:url withBlock:^(LRRestyResponse *response) {
+    NSURL *baseURL = [NSURL URLWithString:[[[Preference alloc] init] serviceURL]];
+    NSString *relativePath = [NSString stringWithFormat:@"/streaks/%@", user];
+    NSURL *url = [NSURL URLWithString:relativePath relativeToURL:baseURL];
+
+    [[LRResty client] get:[url absoluteString] withBlock:^(LRRestyResponse *response) {
         NSString *json = [response asString];
         NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error = nil;
