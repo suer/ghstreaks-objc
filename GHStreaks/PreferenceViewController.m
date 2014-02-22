@@ -53,7 +53,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 
 - (void)addUserNameTextField
 {
-    UILabel *userNameLabel = [UILabelHelper createUILabel:10 pointY:120 width:90 height:40 text:@"ユーザ名:"];
+    UILabel *userNameLabel = [UILabelHelper createUILabel:10 pointY:120 width:90 height:40 text:NSLocalizedString(@"UserNameTextFieldLabel", nil)];
     [self.view addSubview:userNameLabel];
     
     self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 210, 40)];
@@ -66,7 +66,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 
 - (void)addHourTextField
 {
-    UILabel *hourLabel = [UILabelHelper createUILabel:10 pointY:180 width:90 height:40 text:@"通知時刻:"];
+    UILabel *hourLabel = [UILabelHelper createUILabel:10 pointY:180 width:90 height:40 text:NSLocalizedString(@"NotifyAtTextFieldLabel", nil)];
     [self.view addSubview:hourLabel];
     
     self.hourTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 180, 210, 40)];
@@ -98,7 +98,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 {
     UIButton *registerButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     registerButton.frame = CGRectMake(10, 250, 300, 30);
-    [registerButton setTitle:@"登録する" forState:UIControlStateNormal];
+    [registerButton setTitle:NSLocalizedString(@"RegisterButtonLabel", nil) forState:UIControlStateNormal];
     [registerButton addTarget:self action:@selector(registerButtonTapped:)forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:registerButton];
 }

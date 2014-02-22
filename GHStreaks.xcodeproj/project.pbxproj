@@ -27,6 +27,7 @@
 		808B63BA189DE7C300F65F28 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808B63B9189DE7C300F65F28 /* preference.plist */; };
 		808B63BD189DE9AD00F65F28 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B63BC189DE9AD00F65F28 /* Preference.m */; };
 		80F1E3CC18ABA65F00307E2B /* UILabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */; };
+		80F1E3E318B90F9300307E2B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80F1E3E518B90F9300307E2B /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,10 @@
 		808B63BC189DE9AD00F65F28 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
 		80F1E3CA18ABA65F00307E2B /* UILabelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelHelper.h; sourceTree = "<group>"; };
 		80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelHelper.m; sourceTree = "<group>"; };
+		80F1E3DF18B90F6C00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80F1E3E018B90F6C00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		80F1E3E418B90F9300307E2B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80F1E3E618B90F9D00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E3C1407957764977B2F78B17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -145,6 +150,7 @@
 				808B63BC189DE9AD00F65F28 /* Preference.m */,
 				80F1E3CA18ABA65F00307E2B /* UILabelHelper.h */,
 				80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */,
+				80F1E3E518B90F9300307E2B /* Localizable.strings */,
 			);
 			path = GHStreaks;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ja,
 			);
 			mainGroup = 805FDEC31896902C00D1E2AA;
 			productRefGroup = 805FDECD1896902C00D1E2AA /* Products */;
@@ -268,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80703F76189FF29F00240047 /* preference-button.png in Resources */,
+				80F1E3E318B90F9300307E2B /* Localizable.strings in Resources */,
 				80703F77189FF29F00240047 /* preference-button@2x.png in Resources */,
 				805FDEDA1896902C00D1E2AA /* InfoPlist.strings in Resources */,
 				808B63BA189DE7C300F65F28 /* preference.plist in Resources */,
@@ -355,6 +363,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				805FDED91896902C00D1E2AA /* en */,
+				80F1E3DF18B90F6C00307E2B /* ja */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -363,8 +372,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				805FDEF21896902C00D1E2AA /* en */,
+				80F1E3E018B90F6C00307E2B /* ja */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		80F1E3E518B90F9300307E2B /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				80F1E3E418B90F9300307E2B /* en */,
+				80F1E3E618B90F9D00307E2B /* ja */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
