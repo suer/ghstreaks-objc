@@ -4,3 +4,7 @@
 "UserNameTextFieldLabel" = "User";
 "NotifyAtTextFieldLabel" = "Notify";
 "RegisterButtonLabel" = "Register";
+"Registering" = "Registering...";
+"GettingStreaks" = "Getting streaks...";
+"ProgressSuccess" = "Success";
+"ProgressFailure" = "Failure";

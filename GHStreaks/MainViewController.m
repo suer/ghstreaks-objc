@@ -78,7 +78,7 @@
     if ([user isEqualToString:@""]) {
         self.streaksLabel.text = @"";
     }
-    [SVProgressHUD showWithStatus:@"Getting streaks..." maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
     NSURL *baseURL = [NSURL URLWithString:[[[Preference alloc] init] serviceURL]];
     NSString *relativePath = [NSString stringWithFormat:@"/streaks/%@", user];
     NSURL *url = [NSURL URLWithString:relativePath relativeToURL:baseURL];
@@ -92,12 +92,12 @@
                                                                 error:&error];
         if (error != nil) {
             NSLog(@"failed to parse Json %ld", (long)error.code);
-            [SVProgressHUD showErrorWithStatus:@"Failure"];
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"ProgressFailure", nil)];
         } else {
             int streaks = [[dic objectForKey:@"current_streaks"] intValue];
             self.streaksLabel.text = [NSString stringWithFormat:@"%d", streaks];
             [UIApplication sharedApplication].applicationIconBadgeNumber = streaks;
-            [SVProgressHUD showSuccessWithStatus:@"Success"];
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"ProgressSuccess", nil)];
         }
     }];
 }

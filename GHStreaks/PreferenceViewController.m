@@ -105,7 +105,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 
 - (void)registerButtonTapped:(id)sender
 {
-    [SVProgressHUD showWithStatus:@"Registering..." maskType:SVProgressHUDMaskTypeBlack];
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"Registering", nil) maskType:SVProgressHUDMaskTypeBlack];
 
     NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
     NSURL *registrationURL = [NSURL URLWithString:@"/notifications" relativeToURL:baseURL];
@@ -118,7 +118,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
         NSLog(@"%@", [response asString]);
-        [SVProgressHUD showSuccessWithStatus:@"Success"];
+        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"ProgressSuccess", nil)];
         [self.navigationController popViewControllerAnimated:YES];
     }];
 

@@ -4,3 +4,7 @@
 "UserNameTextFieldLabel" = "ユーザ名";
 "NotifyAtTextFieldLabel" = "通知時刻";
 "RegisterButtonLabel" = "登録する";
+"Registering" = "登録中...";
+"GettingStreaks" = "Getting streaks...";
+"ProgressSuccess" = "Success";
+"ProgressFailure" = "Failure";
