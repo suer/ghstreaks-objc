@@ -61,6 +61,11 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     self.userNameTextField.placeholder = @"GitHub User Name";
     self.userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.userNameTextField.delegate = self;
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0, 320.0, 44)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target: self action: @selector(userNameTextEditDone:)];
+    toolBar.items = @[flexibleSpace, buttonItem];
+    self.userNameTextField.inputAccessoryView = toolBar;
     [self.view addSubview:self.userNameTextField];
 }
 
@@ -90,6 +95,12 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     self.hourPickerView.dataSource = self;
     self.hourPickerView.showsSelectionIndicator = YES;
     self.hourPickerView.backgroundColor = [UIColor clearColor];
+    UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0, 320.0, 44)];
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target: self action: @selector(hourTextEditDone:)];
+    toolBar.items = @[flexibleSpace, buttonItem];
+    self.hourTextField.inputView = self.hourPickerView;
+    self.hourTextField.inputAccessoryView = toolBar;
     [self.view addSubview:self.hourPickerView];
 }
 
@@ -157,41 +168,17 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     [UIView commitAnimations];
 
     [self selectRowByTextField];
-
-	if (!self.navigationItem.rightBarButtonItem) {
-        UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
-                                                                                    target:self
-                                                                                    action:@selector(done:)];
-        [self.navigationItem setRightBarButtonItem:doneButton animated:YES];
-    }
 }
 
-- (void)hidePicker {
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.4];
-	[UIView setAnimationDelegate:self];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    self.hourPickerView.frame = CGRectMake(0, screenRect.size.height, screenRect.size.width, 216);
-	[UIView commitAnimations];
-
-	[self.navigationItem setRightBarButtonItem:nil animated:YES];
+- (void)userNameTextEditDone:(id)sender {
+    [self.userNameTextField resignFirstResponder];
 }
 
-
-- (void)done:(id)sender {
-	[self hidePicker];
-    [self.navigationItem setRightBarButtonItem:nil animated:YES];
+- (void)hourTextEditDone:(id)sender {
+    [self.hourTextField resignFirstResponder];
 }
-
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
-    if (textField == self.userNameTextField) {
-        [self hidePicker];
-        return YES;
-    } else if (textField == self.hourTextField) {
-        [self showPicker];
-        return NO;
-    }
     return YES;
 }
 
