@@ -95,6 +95,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     self.hourPickerView.dataSource = self;
     self.hourPickerView.showsSelectionIndicator = YES;
     self.hourPickerView.backgroundColor = [UIColor clearColor];
+    [self selectRowByTextField];
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0, 320.0, 44)];
     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
     UIBarButtonItem *buttonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemDone target: self action: @selector(hourTextEditDone:)];
@@ -151,23 +152,11 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 }
 
 - (void)selectRowByTextField {
-    for (int i = 0j; i < 24; i++) {
+    for (int i = 0; i < 24; i++) {
         if ([self.hourTextField.text isEqualToString:[NSString stringWithFormat:@"%2d:00", i]]) {
             [self.hourPickerView selectRow:i inComponent:0 animated:NO];
         }
     }
-}
-
-- (void)showPicker {
-    [self closeSoftKeyboard];
-	[UIView beginAnimations:nil context:NULL];
-	[UIView setAnimationDuration:0.4];
-	[UIView setAnimationDelegate:self];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    self.hourPickerView.frame = CGRectMake(0, screenRect.size.height - 240, screenRect.size.width, 300);
-    [UIView commitAnimations];
-
-    [self selectRowByTextField];
 }
 
 - (void)userNameTextEditDone:(id)sender {
