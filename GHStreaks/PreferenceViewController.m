@@ -129,9 +129,12 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     [params setValue:utc_offset forKey:@"notification[utc_offset]"];
     
     [[LRResty client] post:[registrationURL absoluteString] payload:params withBlock:^(LRRestyResponse *response) {
-        NSLog(@"%@", [response asString]);
-        [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"ProgressSuccess", nil)];
-        [self.navigationController popViewControllerAnimated:YES];
+        if ([response status] < 300) {
+            [SVProgressHUD showSuccessWithStatus:NSLocalizedString(@"ProgressSuccess", nil)];
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"ProgressFailure", nil)];
+        }
     }];
 
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
