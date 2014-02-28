@@ -8,3 +8,5 @@
 "GettingStreaks" = "Getting streaks...";
 "ProgressSuccess" = "Success";
 "ProgressFailure" = "Failure";
+"Error" = "エラー";
+"GitHubUserNameRequired" = "GitHub のユーザ名を入力してください";

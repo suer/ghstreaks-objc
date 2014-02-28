@@ -117,6 +117,17 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 
 - (void)registerButtonTapped:(id)sender
 {
+    if ([self.userNameTextField.text compare:@""] == NSOrderedSame) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+                                                        message:NSLocalizedString(@"GitHubUserNameRequired", nil)
+                                                       delegate:nil
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"OK", nil
+                              ];
+        [alert show];
+        return;
+    }
+
     [SVProgressHUD showWithStatus:NSLocalizedString(@"Registering", nil) maskType:SVProgressHUDMaskTypeBlack];
 
     NSURL *baseURL = [NSURL URLWithString:self.serviceURL];
