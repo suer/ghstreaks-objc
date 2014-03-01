@@ -15,7 +15,7 @@
     UILabel *uiLabel = [[UILabel alloc] initWithFrame:CGRectMake(pointX, pointY, width, height)];
     uiLabel.textAlignment = NSTextAlignmentCenter;
     uiLabel.text = text;
-    uiLabel.textColor = [UIColor colorWithRed:0.25 green:0.25 blue:0.25 alpha:1.0];
+    uiLabel.textColor = [UIColor colorWithRed:0.9 green:0.9 blue:0.9 alpha:1.0];
     return uiLabel;
 }
 

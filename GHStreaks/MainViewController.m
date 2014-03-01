@@ -61,11 +61,17 @@
 
 - (void)loadText
 {
+    UIImage *backgroundImage = [UIImage imageNamed:@"octocat-background.png"];
+    [backgroundImage drawAtPoint:CGPointMake(0, 0)];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:backgroundImage];
+    imageView.frame = CGRectMake(10, 120, 300, 250);
+    [self.view addSubview:imageView];
+
     CGRect screenRect = [[UIScreen mainScreen] bounds];
-    UILabel *titleLabel = [UILabelHelper createUILabel:0 pointY:140 width:screenRect.size.width height:30 fontSize:30 text:NSLocalizedString(@"CurrentStreaks", nil)];
+    UILabel *titleLabel = [UILabelHelper createUILabel:0 pointY:200 width:screenRect.size.width height:30 fontSize:30 text:NSLocalizedString(@"CurrentStreaks", nil)];
     [self.view addSubview:titleLabel];
 
-    self.streaksLabel = [UILabelHelper createUILabel:0 pointY:200 width:screenRect.size.width height:100 fontSize:100 text:@""];
+    self.streaksLabel = [UILabelHelper createUILabel:0 pointY:230 width:screenRect.size.width height:100 fontSize:100 text:@""];
     NSString *user = [[AppDelegate sharedDelegate] getGitHubUser];
     if (user != nil) {
         [self showCurrentStreaks:user];
@@ -76,12 +82,18 @@
 - (void)showCurrentStreaks:(NSString *)user
 {
     if ([user isEqualToString:@""]) {
-        self.streaksLabel.text = @"";
+        self.streaksLabel.text = @"0";
     }
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
     NSURL *baseURL = [NSURL URLWithString:[[[Preference alloc] init] serviceURL]];
     NSString *relativePath = [NSString stringWithFormat:@"/streaks/%@", user];
     NSURL *url = [NSURL URLWithString:relativePath relativeToURL:baseURL];
+
+    if (url == nil) {
+        self.streaksLabel.text = @"0";
+        return;
+    }
+
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
 
     [[LRResty client] get:[url absoluteString] withBlock:^(LRRestyResponse *response) {
         NSString *json = [response asString];

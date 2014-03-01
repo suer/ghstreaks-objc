@@ -3,3 +3,4 @@ xcuserdata
 *xcworkspace/
 Pods/
 preference.plist
+*.swp

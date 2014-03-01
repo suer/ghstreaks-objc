@@ -26,6 +26,7 @@
 		80703F77189FF29F00240047 /* preference-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 80703F75189FF29F00240047 /* preference-button@2x.png */; };
 		808B63BA189DE7C300F65F28 /* preference.plist in Resources */ = {isa = PBXBuildFile; fileRef = 808B63B9189DE7C300F65F28 /* preference.plist */; };
 		808B63BD189DE9AD00F65F28 /* Preference.m in Sources */ = {isa = PBXBuildFile; fileRef = 808B63BC189DE9AD00F65F28 /* Preference.m */; };
+		80DC676218C1F09900BEEDC5 /* octocat-background.png in Resources */ = {isa = PBXBuildFile; fileRef = 80DC676118C1F09900BEEDC5 /* octocat-background.png */; };
 		80F1E3CC18ABA65F00307E2B /* UILabelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */; };
 		80F1E3E318B90F9300307E2B /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 80F1E3E518B90F9300307E2B /* Localizable.strings */; };
 /* End PBXBuildFile section */
@@ -67,12 +68,13 @@
 		808B63B9189DE7C300F65F28 /* preference.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = preference.plist; sourceTree = "<group>"; };
 		808B63BB189DE9AD00F65F28 /* Preference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preference.h; sourceTree = "<group>"; };
 		808B63BC189DE9AD00F65F28 /* Preference.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preference.m; sourceTree = "<group>"; };
+		80DC676118C1F09900BEEDC5 /* octocat-background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "octocat-background.png"; path = "../../../../Desktop/octocat-background.png"; sourceTree = "<group>"; };
 		80F1E3CA18ABA65F00307E2B /* UILabelHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UILabelHelper.h; sourceTree = "<group>"; };
 		80F1E3CB18ABA65F00307E2B /* UILabelHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UILabelHelper.m; sourceTree = "<group>"; };
 		80F1E3DF18B90F6C00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		80F1E3E018B90F6C00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		80F1E3E418B90F9300307E2B /* en */ = {isa = PBXFileReference; lastKnownFileType = file; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		80F1E3E618B90F9D00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = file; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80F1E3E418B90F9300307E2B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		80F1E3E618B90F9D00307E2B /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E3C1407957764977B2F78B17 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,6 +189,7 @@
 		805FDF041897D9AB00D1E2AA /* images */ = {
 			isa = PBXGroup;
 			children = (
+				80DC676118C1F09900BEEDC5 /* octocat-background.png */,
 				80703F74189FF29F00240047 /* preference-button.png */,
 				80703F75189FF29F00240047 /* preference-button@2x.png */,
 			);
@@ -276,6 +279,7 @@
 			files = (
 				80703F76189FF29F00240047 /* preference-button.png in Resources */,
 				80F1E3E318B90F9300307E2B /* Localizable.strings in Resources */,
+				80DC676218C1F09900BEEDC5 /* octocat-background.png in Resources */,
 				80703F77189FF29F00240047 /* preference-button@2x.png in Resources */,
 				805FDEDA1896902C00D1E2AA /* InfoPlist.strings in Resources */,
 				808B63BA189DE7C300F65F28 /* preference.plist in Resources */,
