@@ -108,15 +108,6 @@
     [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeSound)];
 }
 
-+ (NSString *)userDefaultsKeyGitHubUser
-{
-    return @"GITHUB_USER";
-}
-+ (NSString *)userDefaultsKeyNotificationHour
-{
-    return @"NOTIFICATION_HOUR";
-}
-
 - (NSString *)getDeviceTokenString
 {
     const unsigned *tokenBytes = [[self getDeviceToken] bytes];
@@ -130,15 +121,5 @@
     return token;
 }
 
-- (NSString *)getGitHubUser
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults stringForKey:[AppDelegate userDefaultsKeyGitHubUser]];
-}
 
-- (NSString *)getNotificationHour
-{
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    return [userDefaults stringForKey:[AppDelegate userDefaultsKeyNotificationHour]];
-}
 @end

@@ -10,14 +10,44 @@
 
 @implementation Preference
 
+NSString * const USER_DEFAULTS_KEY_GITHUB_USER = @"GITHUB_USER";
+NSString * const USER_DEFAULTS_KEY_NOTIFICATION_HOUR = @"NOTIFICATION_HOUR";
+
 - (id)init
 {
-    if (self = [super init]) {
-        NSBundle* bundle = [NSBundle mainBundle];
-        NSString* path = [bundle pathForResource:@"preference" ofType:@"plist"];
-        NSDictionary* root = [NSDictionary dictionaryWithContentsOfFile:path];
-        self.serviceURL =[root objectForKey:@"ServiceURL"];
-    }
     return self;
 }
+
++ (NSString *)getServiceURL
+{
+    NSBundle* bundle = [NSBundle mainBundle];
+    NSString* path = [bundle pathForResource:@"preference" ofType:@"plist"];
+    NSDictionary* root = [NSDictionary dictionaryWithContentsOfFile:path];
+    return [root objectForKey:@"ServiceURL"];
+}
+
+- (NSString *)getGitHubUser
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:USER_DEFAULTS_KEY_GITHUB_USER];
+}
+
+- (void)setGitHubUser:(NSString *)gitHubUser
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:gitHubUser forKey:USER_DEFAULTS_KEY_GITHUB_USER];
+}
+
+- (NSString *)getNotificationHour
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    return [userDefaults stringForKey:USER_DEFAULTS_KEY_NOTIFICATION_HOUR];
+}
+
+- (void)setNotificationHour:(NSString *)notificationHour
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:notificationHour forKey:USER_DEFAULTS_KEY_NOTIFICATION_HOUR];
+}
+
 @end

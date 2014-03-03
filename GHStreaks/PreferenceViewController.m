@@ -40,7 +40,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.serviceURL = [[[Preference alloc] init] serviceURL];
+    self.serviceURL = [Preference getServiceURL];
     [self addUserNameTextField];
     [self addHourTextField];
     [self addRegisterButton];
@@ -57,7 +57,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     [self.view addSubview:userNameLabel];
     
     self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 210, 40)];
-    self.userNameTextField.text = [[AppDelegate sharedDelegate] getGitHubUser];
+    self.userNameTextField.text = [[[Preference alloc] init] getGitHubUser];
     self.userNameTextField.placeholder = @"GitHub User Name";
     self.userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.userNameTextField.delegate = self;
@@ -75,7 +75,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     [self.view addSubview:hourLabel];
     
     self.hourTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 180, 210, 40)];
-    self.hourTextField.text = [[AppDelegate sharedDelegate] getNotificationHour];
+    self.hourTextField.text = [[[Preference alloc] init] getNotificationHour];
     if ([self.hourTextField.text compare:@""] == NSOrderedSame) {
         self.hourTextField.text = DEFAULT_NOTIFICATION_HOUR;
     }
@@ -148,10 +148,9 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
         }
     }];
 
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:self.userNameTextField.text forKey:[AppDelegate userDefaultsKeyGitHubUser]];
-    [userDefaults setObject:self.hourTextField.text forKey:[AppDelegate userDefaultsKeyNotificationHour]];
-
+    Preference *preference = [[Preference alloc] init];
+    [preference setGitHubUser:self.userNameTextField.text];
+    [preference setNotificationHour:self.hourTextField.text];
 }
 
 - (NSString *)getHourFromString:hourText

@@ -66,7 +66,7 @@
     [self.view addSubview:titleLabel];
 
     self.streaksLabel = [UILabelHelper createUILabel:0 pointY:200 width:screenRect.size.width height:100 fontSize:100 text:@""];
-    NSString *user = [[AppDelegate sharedDelegate] getGitHubUser];
+    NSString *user = [[[Preference alloc] init] getGitHubUser];
     if (user != nil) {
         [self showCurrentStreaks:user];
     }
@@ -79,7 +79,7 @@
         self.streaksLabel.text = @"";
     }
     [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
-    NSURL *baseURL = [NSURL URLWithString:[[[Preference alloc] init] serviceURL]];
+    NSURL *baseURL = [NSURL URLWithString:[Preference getServiceURL]];
     NSString *relativePath = [NSString stringWithFormat:@"/streaks/%@", user];
     NSURL *url = [NSURL URLWithString:relativePath relativeToURL:baseURL];
 
@@ -104,7 +104,7 @@
 
 - (void)reload:(id)sender
 {
-    NSString *user = [[AppDelegate sharedDelegate] getGitHubUser];
+    NSString *user = [[[Preference alloc] init] getGitHubUser];
     if (user != nil) {
         [self showCurrentStreaks:user];
     }

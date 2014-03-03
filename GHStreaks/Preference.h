@@ -10,6 +10,12 @@
 
 @interface Preference : NSObject
 
-@property (strong, nonatomic) NSString *serviceURL;
++ (NSString *)getServiceURL;
+
+- (NSString *)getGitHubUser;
+- (void)setGitHubUser:(NSString *)gitHubUser;
+
+- (NSString *)getNotificationHour;
+- (void)setNotificationHour:(NSString *)notificationHour;
 
 @end
