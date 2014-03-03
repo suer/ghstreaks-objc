@@ -78,11 +78,15 @@
     if ([user isEqualToString:@""]) {
         self.streaksLabel.text = @"";
     }
-    [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
     NSURL *baseURL = [NSURL URLWithString:[Preference getServiceURL]];
     NSString *relativePath = [NSString stringWithFormat:@"/streaks/%@", user];
     NSURL *url = [NSURL URLWithString:relativePath relativeToURL:baseURL];
 
+    if (url == nil) {
+        return;
+    }
+
+    [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
     [[LRResty client] get:[url absoluteString] withBlock:^(LRRestyResponse *response) {
         NSString *json = [response asString];
         NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
