@@ -58,7 +58,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     
     self.userNameTextField = [[UITextField alloc] initWithFrame:CGRectMake(100, 120, 210, 40)];
     self.userNameTextField.text = [[[Preference alloc] init] getGitHubUser];
-    self.userNameTextField.placeholder = @"GitHub User Name";
+    self.userNameTextField.placeholder = NSLocalizedString(@"UserTextFieldPlaceHolder", nil);
     self.userNameTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.userNameTextField.delegate = self;
     UIToolbar *toolBar = [[UIToolbar alloc] initWithFrame: CGRectMake(0.0, 0, 320.0, 44)];
@@ -79,7 +79,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     if ([self.hourTextField.text compare:@""] == NSOrderedSame) {
         self.hourTextField.text = DEFAULT_NOTIFICATION_HOUR;
     }
-    self.hourTextField.placeholder = @"hour";
+    self.hourTextField.placeholder = NSLocalizedString(@"HourTextFieldPlaceHolder", nil);
     self.hourTextField.borderStyle = UITextBorderStyleRoundedRect;
     self.hourTextField.delegate = self;
     [self.view addSubview:self.hourTextField];

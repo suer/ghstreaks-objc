@@ -10,3 +10,5 @@
 "ProgressFailure" = "Failure";
 "Error" = "エラー";
 "GitHubUserNameRequired" = "GitHub のユーザ名を入力してください";
+"UserTextFieldPlaceHolder" = "GitHubユーザ名";
+"HourTextFieldPlaceHolder" = "通知時刻";

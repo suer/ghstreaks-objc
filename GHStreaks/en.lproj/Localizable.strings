@@ -10,3 +10,5 @@
 "ProgressFailure" = "Failure";
 "Error" = "Error";
 "GitHubUserNameRequired" = "GitHub user name required";
+"UserTextFieldPlaceHolder" = "GitHub User Name";
+"HourTextFieldPlaceHolder" = "Notification Time";
