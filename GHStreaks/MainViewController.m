@@ -75,7 +75,7 @@
 
 - (void)showCurrentStreaks:(NSString *)user
 {
-    if ([user isEqualToString:@""]) {
+    if ([user compare:@""] == NSOrderedSame) {
         self.streaksLabel.text = @"";
     }
     NSURL *baseURL = [NSURL URLWithString:[Preference getServiceURL]];
