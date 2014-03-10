@@ -36,6 +36,7 @@
     [self setTitle:NSLocalizedString(@"MainViewTitle", nil)];
     [self loadToolBarButtons];
     [self loadText];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
 }
 
 - (void)loadToolBarButtons
