@@ -87,14 +87,19 @@
         return;
     }
 
+    [self retrieveStreaks:url];
+}
+
+- (void)retrieveStreaks:(NSURL *)url
+{
     [SVProgressHUD showWithStatus:NSLocalizedString(@"GettingStreaks", nil) maskType:SVProgressHUDMaskTypeBlack];
     [[LRResty client] get:[url absoluteString] withBlock:^(LRRestyResponse *response) {
         NSString *json = [response asString];
         NSData *jsonData = [json dataUsingEncoding:NSUTF8StringEncoding];
         NSError *error = nil;
         NSMutableDictionary *dic = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                              options:NSJSONReadingAllowFragments
-                                                                error:&error];
+                                                                   options:NSJSONReadingAllowFragments
+                                                                     error:&error];
         if (error != nil) {
             NSLog(@"failed to parse Json %ld", (long)error.code);
             [SVProgressHUD showErrorWithStatus:NSLocalizedString(@"ProgressFailure", nil)];
