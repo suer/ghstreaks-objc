@@ -135,7 +135,6 @@
 - (void)openPreferenceWindow:(id)sender
 {
     PreferenceViewController *preferenceViewController = [[PreferenceViewController alloc] initWithNibName:nil bundle:nil];
-    preferenceViewController.title = NSLocalizedString(@"PreferenceViewTitle", nil);
     [self.navigationController pushViewController:preferenceViewController animated:YES];
 }
 

@@ -40,6 +40,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = NSLocalizedString(@"PreferenceViewTitle", nil);
     self.serviceURL = [Preference getServiceURL];
     [self addUserNameTextField];
     [self addHourTextField];
