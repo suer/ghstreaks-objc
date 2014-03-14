@@ -50,4 +50,8 @@ NSString * const USER_DEFAULTS_KEY_NOTIFICATION_HOUR = @"NOTIFICATION_HOUR";
     [userDefaults setObject:notificationHour forKey:USER_DEFAULTS_KEY_NOTIFICATION_HOUR];
 }
 
+- (BOOL)isSet
+{
+    return [[self getGitHubUser] compare:@""] != NSOrderedSame && [[self getNotificationHour] compare:@""] != NSOrderedSame;
+}
 @end

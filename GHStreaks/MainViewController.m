@@ -16,6 +16,8 @@
 @property (nonatomic) UIBarButtonItem *preferenceButton;
 
 @property (nonatomic) UILabel *streaksLabel;
+
+@property (nonatomic) BOOL toolbarApeared;
 @end
 
 @implementation MainViewController
@@ -32,11 +34,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self setTitle:NSLocalizedString(@"MainViewTitle", nil)];
-    [self loadToolBarButtons];
-    [self loadText];
     [self.view setBackgroundColor:[UIColor whiteColor]];
+    [self loadText];
+    if (![[[Preference alloc] init] isSet]) {
+        [self openPreferenceWindow:nil];
+    }
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    if (!self.toolbarApeared) {
+        [self loadToolBarButtons];
+        self.toolbarApeared = YES;
+    }
+    [self reload:nil];
 }
 
 - (void)loadToolBarButtons

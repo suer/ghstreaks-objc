@@ -18,4 +18,5 @@
 - (NSString *)getNotificationHour;
 - (void)setNotificationHour:(NSString *)notificationHour;
 
+- (BOOL)isSet;
 @end
