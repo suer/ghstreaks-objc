@@ -169,6 +169,7 @@ static NSString *DEFAULT_NOTIFICATION_HOUR =  @"18:00";
     for (int i = 0; i < 24; i++) {
         if ([self.hourTextField.text isEqualToString:[NSString stringWithFormat:@"%2d:00", i]]) {
             [self.hourPickerView selectRow:i inComponent:0 animated:NO];
+            return;
         }
     }
 }
