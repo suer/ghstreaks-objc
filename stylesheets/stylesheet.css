@@ -90,9 +90,17 @@ header h2 {
 
 #app-icon {
   float: left;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
   border-radius: 30px;
   width: 140px;
   height: 140px;
+}
+
+.screen-shot {
+  float: left;
+  width: 270px;
+  text-align: center;
 }
 
 #container {
@@ -101,7 +109,7 @@ header h2 {
 }
 
 .inner {
-  width: 620px;
+  width: 810px;
   margin: 0 auto;
 }
 
@@ -115,7 +123,7 @@ header h2 {
 
 a.button {
   -moz-border-radius: 30px;
-  -webkit-border-radius: 30px;                     
+  -webkit-border-radius: 30px;
   border-radius: 30px;
   border-top: solid 1px #cbcbcb;
   border-left: solid 1px #b7b7b7;
@@ -263,7 +271,7 @@ h2 {
 } 
 
 h3 {
-  color: #d5000d;
+  color: #555;
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 8px;
